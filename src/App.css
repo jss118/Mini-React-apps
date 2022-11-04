@@ -1,38 +1,224 @@
-.App {
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.page_div {
+  margin-right: 20%;
+  margin-left: 20%;
+  background-image: linear-gradient(
+    270deg,
+    rgba(9, 97, 179, 0.3),
+    rgba(252, 252, 252, 0)
+  );
+  border-radius: 25px;
+  padding: 15px;
+}
+
+.header__div {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header__h1 {
+  border: 1px solid black;
+  margin: 10% 30% 10% 30%;
+  padding: 5px 5px 5px 5px;
+  border-radius: 25px;
+  background-image: linear-gradient(180deg, rgb(1, 21, 39), rgb(187, 182, 182));
+  color: transparent;
+  background-clip: text;
+}
+
+.link__counter {
+  border-radius: 20px;
+  box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.25);
+  padding: 5px 5px 5px 5px;
+  margin-right: 10px;
+  background-color: rgba(43, 169, 241, 0.336);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link__counter:hover {
+  box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.6);
+}
+
+.link__counter:active {
+  opacity: 0.7;
+}
+
+.link__home {
+  border-radius: 20px;
+  box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.25);
+  padding: 5px 5px 5px 5px;
+  margin-right: 10px;
+  background-color: rgba(124, 200, 245, 0.336);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link__home:hover {
+  box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.6);
+}
+
+.link__home:active {
+  opacity: 0.7;
+}
+
+.link__calculator {
+  border-radius: 20px;
+  box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.25);
+  padding: 5px 5px 5px 5px;
+  margin-right: 10px;
+  background-color: rgba(43, 168, 241, 0.651);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link__calculator:hover {
+  box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.6);
+}
+
+.link__calculator:active {
+  opacity: 0.7;
+}
+
+.link__to-do-list {
+  border-radius: 20px;
+  box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.25);
+  padding: 5px 5px 5px 5px;
+  margin-right: 10px;
+  background-color: rgba(43, 168, 241, 0.87);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link__to-do-list:hover {
+  box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.6);
+}
+
+.link__to-do-list:active {
+  opacity: 0.7;
+}
+
+.home_content {
+  border: 2px solid;
+  margin: 10% 30% 10% 30%;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 4px 4px 7px;
+  background-color: antiquewhite;
+}
+
+.home_heading {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.home_subheading {
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home_paragraph {
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.counter__border {
+  border: 2px solid black;
+  margin: 10px 200px 10px 200px;
+  padding: 50px 5px 5px 5px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+  background-color: rgba(0, 119, 255, 0.28);
+  box-shadow: 4px 4px 7px;
+}
+
+.counter__decrement-btn {
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+  border-radius: 5px;
+  box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.4);
+  cursor: pointer;
+  background-color: rgb(192, 15, 15);
+  border-style: none;
+}
+.counter__decrement-btn:hover {
+  box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.8);
+}
+.counter__decrement-btn:active {
+  box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.4);
+  transform: scale(0.95);
+}
+
+.counter__count {
+  background-color: rgba(112, 186, 255, 0.377);
+  padding: 10px 10px 10px 10px;
+  border-radius: 25px;
+}
+
+.counter__increment-btn {
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+  border-radius: 5px;
+  box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.4);
+  cursor: pointer;
+  border-style: none;
+  background-color: rgb(48, 187, 48);
+}
+.counter__increment-btn:hover {
+  box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.8);
+}
+.counter__increment-btn:active {
+  box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.4);
+  transform: scale(0.95);
+}
+
+.counter__reset-btn {
+  height: 50px;
+  width: 50px;
+  font-size: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.4);
+  cursor: pointer;
+  grid-column-start: span 3;
+  border-style: none;
+  background-color: azure;
+  margin-top: 10px;
+}
+.counter__reset-btn:hover {
+  box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.8);
+}
+.counter__reset-btn:active {
+  box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.4);
+  transform: scale(0.95);
+}
+
+.calculator__border {
+  margin: 10px 50px 0px 50px;
+  width: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 6px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.calculator__screen {
+  grid-column-start: span 3;
+  border: 1px solid black;
+  text-align: end;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calculator__btn {
+  padding: 5px 5px 5px 5px;
 }
