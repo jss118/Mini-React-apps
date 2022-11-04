@@ -131,7 +131,7 @@ body {
 
 .counter__border {
   border: 2px solid black;
-  margin: 10px 200px 10px 200px;
+  margin: auto;
   padding: 50px 5px 5px 5px;
   border-radius: 10px;
   display: grid;
@@ -206,7 +206,6 @@ body {
 
 .calculator__border {
   margin: auto;
-  width: 200px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 1fr 1fr;
@@ -226,4 +225,13 @@ body {
 
 .calculator__btn {
   padding: 5px 5px 5px 5px;
+}
+
+@media only screen and (min-width: 600px) {
+  .calculator__border {
+    width: 200px;
+  }
+  .counter__border {
+    width: 315px;
+  }
 }
