@@ -120,9 +120,13 @@ body {
 }
 
 .home_subheading {
+  text-align: center;
+  margin-top: 5px;
 }
 
 .home_paragraph {
+  text-align: center;
+  margin-top: 10px;
 }
 
 .counter__border {
@@ -201,22 +205,23 @@ body {
 }
 
 .calculator__border {
-  margin: 10px 50px 0px 50px;
+  margin: auto;
   width: 200px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
   grid-gap: 6px;
-  justify-content: center;
   border: 2px solid;
   border-radius: 10px;
-  padding: 50px;
+  padding: 25px 50px 50px 50px;
+  box-shadow: 5px -5px 1px;
 }
 
 .calculator__screen {
   grid-column-start: span 3;
   border: 1px solid black;
   text-align: end;
+  margin-bottom: 30px;
 }
 
 .calculator__btn {
