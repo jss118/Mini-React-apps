@@ -18,9 +18,15 @@ const JokeGenerator = () => {
 
   return (
     <section className="joke-gen__section">
-      <button onClick={getJoke}>{joke ? "Another Joke" : "Joke"}</button>
+      <button className="joke-btn" onClick={getJoke}>
+        {joke ? "Another Joke" : "Joke"}
+      </button>
       {joke ? <h2>{joke}</h2> : null}
-      {joke ? <button onClick={showPunchline}>Punchline</button> : null}
+      {joke ? (
+        <button className="punchline-btn" onClick={showPunchline}>
+          Punchline
+        </button>
+      ) : null}
       {reveal ? <h3>{punchline}</h3> : null}
     </section>
   );
