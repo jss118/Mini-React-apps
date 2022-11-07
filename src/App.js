@@ -5,6 +5,7 @@ import Counter from "./components/Counter";
 import Calculator from "./components/Calculator";
 import ToDoList from "./components/ToDoList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import JokeGenerator from "./components/JokeGenerator";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/Counter" element={<Counter />} />
           <Route path="/Calculator" element={<Calculator />} />
           <Route path="/ToDoList" element={<ToDoList />} />
+          <Route path="/JokeGenerator" element={<JokeGenerator />} />
         </Routes>
       </BrowserRouter>
     </div>
