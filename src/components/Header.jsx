@@ -5,17 +5,20 @@ const Header = () => {
   return (
     <div className="header__div">
       <h1 className="header__h1">Mini React Projects!</h1>
-      <Link className="link__home" to="Home">
+      <Link className="link__pages" to="Home">
         Home
       </Link>
-      <Link className="link__counter" to="Counter">
+      <Link className="link__pages" to="Counter">
         Counter
       </Link>
-      <Link className="link__calculator" to="Calculator">
+      <Link className="link__pages" to="Calculator">
         Calculator
       </Link>
-      <Link className="link__to-do-list" to="ToDoList">
+      <Link className="link__pages" to="ToDoList">
         To-Do List
+      </Link>
+      <Link className="link__pages" to="JokeGenerator">
+        Joke Generator
       </Link>
     </div>
   );
