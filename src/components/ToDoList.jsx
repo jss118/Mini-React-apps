@@ -10,10 +10,11 @@ const ToDoList = () => {
 
   const handleClick = event => {
     event.preventDefault();
-    setListItems(items => {
-      const newItems = [newItem, ...items];
-      return newItems;
-    });
+    if (newItem)
+      setListItems(items => {
+        const newItems = [newItem, ...items];
+        return newItems;
+      });
     setNewItem("");
   };
 
@@ -25,22 +26,46 @@ const ToDoList = () => {
     });
   };
 
+  const clear = () => {
+    setListItems([]);
+  };
+
   return (
-    <section>
-      <input onChange={handleChange} type="text" />
-      <button onClick={handleClick}>Add to list</button>
-      <ul>
+    <section className="to-do__section">
+      <form className="to-do__form">
+        <input
+          value={newItem}
+          className="to-do__input"
+          onChange={handleChange}
+          type="text"
+          required
+        />
+        <button className="to-do__addBtn" onClick={handleClick}>
+          +
+        </button>
+      </form>
+
+      <ul className="to-do__ul">
         {listItems.map(item => {
           return (
-            <li>
+            <li className="to-do__li">
               {item}
-              <button value={item} onClick={removeItem}>
+              <button
+                className="to-do__deleteBtn"
+                value={item}
+                onClick={removeItem}
+              >
                 x
               </button>
             </li>
           );
         })}
       </ul>
+      {listItems.length > 1 ? (
+        <button className="clear-btn" onClick={clear}>
+          CLEAR
+        </button>
+      ) : null}
     </section>
   );
 };
