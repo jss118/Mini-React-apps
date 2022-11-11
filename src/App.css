@@ -300,6 +300,13 @@ body {
 .score {
   border-bottom: 2px solid;
 }
+.plays {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  width: 540;
+  margin-left: 100;
+}
 .options {
   display: flex;
   flex-direction: row;
