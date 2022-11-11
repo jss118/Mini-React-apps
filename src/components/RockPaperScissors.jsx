@@ -7,35 +7,15 @@ const RockPaperScissors = () => {
   const [computerOption, setComputerOption] = useState("");
 
   useEffect(() => {
-    // turn into function!!!
-    if (playerOption && computerOption) {
-      return playerOption === "Rock" && computerOption === "Paper"
-        ? setScores(prevScore => {
-            prevScore.computer++;
-          })
-        : playerOption === "Rock" && computerOption === "Scissors"
-        ? setScores(prevScore => {
-            prevScore.player++;
-          })
-        : playerOption === "Paper" && computerOption === "Rock"
-        ? setScores(prevScore => {
-            prevScore.player++;
-          })
-        : playerOption === "Paper" && computerOption === "Scissors"
-        ? setScores(prevScore => {
-            prevScore.computer++;
-          })
-        : playerOption === "Scissors" && computerOption === "Paper"
-        ? setScores(prevScore => {
-            prevScore.player++;
-          })
-        : playerOption === "Scissors" && computerOption === "Rock"
-        ? setScores(prevScore => {
-            prevScore.computer++;
-          })
-        : null;
+    if (playerOption === "Rock" && computerOption === "Scissors") {
+      setScores(prevScores => {
+        prevScores.player++;
+        const newScores = prevScores;
+        return newScores;
+      });
     }
-  }, [computerOption, playerOption]);
+  }, [playerOption, computerOption]);
+
   const start = () => {
     setStartGame(true);
   };
