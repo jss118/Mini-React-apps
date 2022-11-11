@@ -7,6 +7,7 @@ const RockPaperScissors = () => {
   const [computerOption, setComputerOption] = useState("");
 
   useEffect(() => {
+    // turn into function!!!
     if (playerOption && computerOption) {
       return playerOption === "Rock" && computerOption === "Paper"
         ? setScores(prevScore => {
