@@ -34,7 +34,7 @@ const RockPaperScissors = () => {
 
     if (scores.computer === 3 || scores.player === 3) {
       if (scores.computer > scores.player) {
-        setWhoWins("Computer Wins!");
+        setWhoWins("You lose! :(");
       } else {
         setWhoWins("You Win!");
       }
