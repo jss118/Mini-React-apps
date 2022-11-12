@@ -284,6 +284,63 @@ body {
   box-shadow: 1px 2px 3px rgb(0, 0, 0, 0);
   opacity: 0.8;
 }
+.RPS__section {
+  text-align: center;
+}
+.RPS__start-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+.RPS__start-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.game_scores {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.score {
+  border-bottom: 2px solid;
+}
+.plays {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  width: 540;
+  margin-left: 100;
+}
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+.option-btn {
+  padding: 10px;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.option-btn:hover {
+  background-color: black;
+  color: white;
+}
+.option-btn:active {
+  opacity: 0.7;
+}
+.winner {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 50px;
+}
 
 @media only screen and (min-width: 600px) {
   .calculator__border {

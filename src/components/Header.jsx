@@ -20,6 +20,9 @@ const Header = () => {
       <Link className="link__pages" to="JokeGenerator">
         Joke Generator
       </Link>
+      <Link className="link__pages" to="RockPaperScissors">
+        R.P.S
+      </Link>
     </div>
   );
 };
