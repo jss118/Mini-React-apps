@@ -39,6 +39,8 @@ const RockPaperScissors = () => {
         setWhoWins("You Win!");
       }
       setScores({ player: 0, computer: 0 });
+      setComputerOption("");
+      setPlayerOption("");
       setStartGame(false);
     }
   }, [computerOption, playerOption, scores]);
@@ -80,14 +82,20 @@ const RockPaperScissors = () => {
             {computerOption ? <h2>{computerOption}</h2> : null}
           </div>
           <div className="options">
-            <button onClick={chooseOption}>Rock</button>
-            <button onClick={chooseOption}>Paper</button>
-            <button onClick={chooseOption}>Scissors</button>
+            <button className="option-btn" onClick={chooseOption}>
+              Rock
+            </button>
+            <button className="option-btn" onClick={chooseOption}>
+              Paper
+            </button>
+            <button className="option-btn" onClick={chooseOption}>
+              Scissors
+            </button>
           </div>
         </div>
       ) : (
         <>
-          <h2>{whoWins}</h2>
+          <h2 className="winner">{whoWins}</h2>
           <button onClick={start} className="RPS__start-btn">
             {whoWins ? "Play Again!" : "Start"}
           </button>
