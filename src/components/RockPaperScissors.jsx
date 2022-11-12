@@ -5,6 +5,7 @@ const RockPaperScissors = () => {
   const [scores, setScores] = useState({ player: 0, computer: 0 });
   const [playerOption, setPlayerOption] = useState("");
   const [computerOption, setComputerOption] = useState("");
+  const [whoWins, setWhoWins] = useState("");
 
   useEffect(() => {
     if (
@@ -30,7 +31,17 @@ const RockPaperScissors = () => {
         return newScores;
       });
     }
-  }, [computerOption, playerOption]);
+
+    if (scores.computer === 3 || scores.player === 3) {
+      if (scores.computer > scores.player) {
+        setWhoWins("Computer Wins!");
+      } else {
+        setWhoWins("You Win!");
+      }
+      setScores({ player: 0, computer: 0 });
+      setStartGame(false);
+    }
+  }, [computerOption, playerOption, scores]);
 
   const start = () => {
     setStartGame(true);
@@ -75,9 +86,12 @@ const RockPaperScissors = () => {
           </div>
         </div>
       ) : (
-        <button onClick={start} className="RPS__start-btn">
-          Start
-        </button>
+        <>
+          <h2>{whoWins}</h2>
+          <button onClick={start} className="RPS__start-btn">
+            {whoWins ? "Play Again!" : "Start"}
+          </button>
+        </>
       )}
     </section>
   );
