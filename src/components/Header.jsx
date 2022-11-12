@@ -23,6 +23,9 @@ const Header = () => {
       <Link className="link__pages" to="RockPaperScissors">
         R.P.S
       </Link>
+      <Link className="link__pages" to="HexColours">
+        Hex Colours
+      </Link>
     </div>
   );
 };

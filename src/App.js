@@ -7,6 +7,7 @@ import ToDoList from "./components/ToDoList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import JokeGenerator from "./components/JokeGenerator";
 import RockPaperScissors from "./components/RockPaperScissors";
+import HexColours from "./components/HexColours";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/ToDoList" element={<ToDoList />} />
           <Route path="/JokeGenerator" element={<JokeGenerator />} />
           <Route path="/RockPaperScissors" element={<RockPaperScissors />} />
+          <Route path="/HexColours" element={<HexColours />} />
         </Routes>
       </BrowserRouter>
     </div>
