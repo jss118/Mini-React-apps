@@ -26,6 +26,9 @@ const Header = () => {
       <Link className="link__pages" to="HexColours">
         Hex Colours
       </Link>
+      <Link className="link__pages" to="WeatherApp">
+        Weather App
+      </Link>
     </div>
   );
 };
