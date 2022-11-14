@@ -369,6 +369,18 @@ body {
   margin: auto;
 }
 
+.weather-border {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(rgb(50, 150, 160), rgb(50, 60, 140));
+  border-radius: 25px;
+  color: white;
+  font-family: sans-serif;
+}
+
 @media only screen and (min-width: 600px) {
   .calculator__border {
     width: 200px;

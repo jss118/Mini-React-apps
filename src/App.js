@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import JokeGenerator from "./components/JokeGenerator";
 import RockPaperScissors from "./components/RockPaperScissors";
 import HexColours from "./components/HexColours";
-import Weather from "./components/weather";
+import Weather from "./components/Weather";
 
 function App() {
   return (
