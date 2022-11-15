@@ -46,9 +46,9 @@ const ToDoList = () => {
       </form>
 
       <ul className="to-do__ul">
-        {listItems.map(item => {
+        {listItems.map((item, index) => {
           return (
-            <li className="to-do__li">
+            <li key={index} className="to-do__li">
               {item}
               <button
                 className="to-do__deleteBtn"
