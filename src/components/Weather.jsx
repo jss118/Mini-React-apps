@@ -3,7 +3,10 @@ import Axios from "axios";
 
 const Weather = () => {
   const [temp, setTemp] = useState(null);
+  const [feelsLike, setFeelsLike] = useState(null);
   const [location, setLocation] = useState("");
+  const [description, setDescription] = useState("");
+  const [weatherIcon, setWeatherIcon] = useState("");
 
   useEffect(() => {
     const params = {
@@ -13,25 +16,43 @@ const Weather = () => {
 
     Axios.get("http://api.weatherstack.com/current", { params })
       .then(response => {
-        console.log(response);
+        setTemp(response.data.current.temperature);
+        setFeelsLike(response.data.current.feelslike);
+        setDescription(response.data.current.weather_descriptions[0]);
+        setWeatherIcon(response.data.current.weather_icons[0]);
       })
       .catch(error => {
-        console.log(error);
+        (<console className="alert"></console>)(error);
       });
-  }, [location]);
+  }, [location, temp, weatherIcon]);
 
   const getWeather = event => {
     event.preventDefault();
-    setLocation(event.target.form[0].value);
+    const locationStr = event.target.form[0].value;
+    const uppercaseStr = locationStr[0].toUpperCase() + locationStr.slice(1);
+    setLocation(uppercaseStr);
   };
 
   return (
     <div className="weather-border">
       <form className="enterLocation">
         <input type="text" placeholder="Enter city" required />
-        <button onClick={getWeather}>Weather me up!</button>
+        <button onClick={getWeather}>
+          <span>&#9728;</span>
+        </button>
       </form>
-      <h2>{location}</h2>
+      <h1 className="location__h1">{location}</h1>
+      <img src={weatherIcon} className="weatherIcon-img" alt="weather-icon" />
+      <h2 className="temp__h2">
+        {temp}
+        <span className="celcius">&#8451;</span>
+      </h2>
+      {feelsLike ? <p className="feelsLike__p">feels like</p> : null}
+      <p className="feelsLike-temp__p">
+        {feelsLike}
+        <span className="celcius">&#8451;</span>
+      </p>
+      <p className="weatherDescription">{description}</p>
     </div>
   );
 };
