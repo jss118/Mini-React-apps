@@ -22,9 +22,17 @@ const Weather = () => {
         setWeatherIcon(response.data.current.weather_icons[0]);
       })
       .catch(error => {
-        (<console className="alert"></console>)(error);
+        console.log(error);
       });
   }, [location, temp, weatherIcon]);
+
+  const getUserLocation = event => {
+    event.preventDefault();
+    const location = navigator.geolocation.getCurrentPosition(position => {
+      console.log(position.coords);
+    });
+    return location;
+  };
 
   const getWeather = event => {
     event.preventDefault();
@@ -36,21 +44,24 @@ const Weather = () => {
   return (
     <div className="weather-border">
       <form className="enterLocation">
-        <input type="text" placeholder="Enter city" required />
-        <button onClick={getWeather}>
-          <span>&#9728;</span>
-        </button>
+        <input type="text" placeholder="Enter city" />
+        <button onClick={getWeather}>&#9728;</button>
+        <button onClick={getUserLocation}>&#9737;</button>
       </form>
       <h1 className="location__h1">{location}</h1>
-      <img src={weatherIcon} className="weatherIcon-img" alt="weather-icon" />
-      <h2 className="temp__h2">
-        {temp}
-        <span className="celcius">&#8451;</span>
-      </h2>
+      {location ? (
+        <img src={weatherIcon} className="weatherIcon-img" alt="weather-icon" />
+      ) : null}
+      {temp ? (
+        <h2 className="temp__h2">
+          {temp}
+          <span className="celcius">&#8451;</span>
+        </h2>
+      ) : null}
       {feelsLike ? <p className="feelsLike__p">feels like</p> : null}
       <p className="feelsLike-temp__p">
         {feelsLike}
-        <span className="celcius">&#8451;</span>
+        {feelsLike ? <span className="celcius">&#8451;</span> : null}
       </p>
       <p className="weatherDescription">{description}</p>
     </div>
