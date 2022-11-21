@@ -64,7 +64,7 @@ const Weather = () => {
   const getWeather = event => {
     event.preventDefault();
     if (!event.target.value) {
-      alert("Enter a city or country in the searchbar");
+      alert("Enter a city or country in the searchbar or use your location");
     }
     const locationStr = event.target.value;
     const uppercaseStr = locationStr[0].toUpperCase() + locationStr.slice(1);
