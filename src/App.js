@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import JokeGenerator from "./components/JokeGenerator";
 import RockPaperScissors from "./components/RockPaperScissors";
 import HexColours from "./components/HexColours";
+import Weather from "./components/Weather";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/JokeGenerator" element={<JokeGenerator />} />
           <Route path="/RockPaperScissors" element={<RockPaperScissors />} />
           <Route path="/HexColours" element={<HexColours />} />
+          <Route path="/WeatherApp" element={<Weather />} />
         </Routes>
       </BrowserRouter>
     </div>
