@@ -42,7 +42,6 @@ const Weather = () => {
 
   const getUserLocation = event => {
     event.preventDefault();
-
     const options = {
       method: "GET",
       headers: {
@@ -86,16 +85,17 @@ const Weather = () => {
       {location ? (
         <img src={weatherIcon} className="weatherIcon-img" alt="weather-icon" />
       ) : null}
-
-      <h2 className="temp__h2">
-        {temp}
-        <span className="celcius">&#8451;</span>
-      </h2>
-      <p className="feelsLike__p">feels like</p>
-      <p className="feelsLike-temp__p">
-        {feelsLike}
-        <span className="celcius">&#8451;</span>
-      </p>
+      <div className="temp-container">
+        <h2 className="temp__h2">
+          {temp}
+          <span className="celcius">&#8451;</span>
+        </h2>
+        <p className="feelsLike__p">feels like</p>
+        <p className="feelsLike-temp__p">
+          {feelsLike}
+          <span className="celcius">&#8451;</span>
+        </p>
+      </div>
       <p className="weatherDescription">{description}</p>
     </div>
   );
