@@ -29,6 +29,9 @@ const Header = () => {
       <Link className="link__pages" to="WeatherApp">
         Weather App
       </Link>
+      <Link className="link__pages" to="TicTacToe">
+        T.T.T
+      </Link>
     </div>
   );
 };

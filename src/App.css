@@ -480,6 +480,29 @@ body {
   padding-top: 20px;
 }
 
+.ttt-container {
+  display: grid;
+  justify-content: center;
+}
+
+.ticTacToe-h1 {
+  text-align: center;
+}
+
+.ticTacToe-table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 2px solid black;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  vertical-align: center;
+  font-size: 70px;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 600px) {
   .calculator__border {
     width: 200px;
