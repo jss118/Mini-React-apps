@@ -38,6 +38,7 @@ const TicTacToe = () => {
           setWinner(squares[pattern[0]]);
         }
       });
+      if (squares.every(square => square)) setWinner("Tie!");
     }
   };
 
@@ -78,7 +79,9 @@ const TicTacToe = () => {
       <h1 className="ticTacToe-h1">Tic Tac Toe!</h1>
       {winner ? (
         <>
-          <h2 className="ticTacToe-winner_h2">{winner} wins!</h2>
+          <h2 className="ticTacToe-winner_h2">
+            {winner === "Tie!" ? `${winner}` : `${winner} wins!`}
+          </h2>
           <button className="ticTacToe-resetBtn" onClick={resetGame}>
             Play again
           </button>
