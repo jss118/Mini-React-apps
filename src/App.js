@@ -9,6 +9,7 @@ import JokeGenerator from "./components/JokeGenerator";
 import RockPaperScissors from "./components/RockPaperScissors";
 import HexColours from "./components/HexColours";
 import Weather from "./components/Weather";
+import TicTacToe from "./components/TicTacToe";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/RockPaperScissors" element={<RockPaperScissors />} />
           <Route path="/HexColours" element={<HexColours />} />
           <Route path="/WeatherApp" element={<Weather />} />
+          <Route path="/TicTacToe" element={<TicTacToe />} />
         </Routes>
       </BrowserRouter>
     </div>
