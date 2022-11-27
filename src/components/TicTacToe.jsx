@@ -1,28 +1,112 @@
-import React from "react";
+import { useState } from "react";
 
 const TicTacToe = () => {
+  const [turn, setTurn] = useState("X");
+  const [cells, setCells] = useState(Array(9).fill(""));
+  const [winner, setWinner] = useState(null);
+
+  const checkForWinner = squares => {
+    const winCombos = {
+      across: [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+      ],
+      down: [
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+      ],
+      diagonal: [
+        [0, 4, 8],
+        [6, 4, 2],
+      ],
+    };
+
+    for (let combo in winCombos) {
+      winCombos[combo].forEach(pattern => {
+        if (
+          squares[pattern[0]] === "" ||
+          squares[pattern[1]] === "" ||
+          squares[pattern[2]] === ""
+        ) {
+          // do nothing
+        } else if (
+          squares[pattern[0]] === squares[pattern[1]] &&
+          squares[pattern[1]] === squares[pattern[2]]
+        ) {
+          setWinner(squares[pattern[0]]);
+        }
+      });
+    }
+  };
+
+  const Cell = ({ cellId }) => {
+    return (
+      <td onClick={() => handleClick(cellId)} className="ticTacToe-tableCell">
+        {cells[cellId]}
+      </td>
+    );
+  };
+
+  const handleClick = cellId => {
+    if (cells[cellId] !== "") {
+      alert("Square taken");
+      return;
+    }
+    let squares = [...cells];
+    if (turn === "X") {
+      squares[cellId] = "X";
+      setTurn("O");
+    } else {
+      squares[cellId] = "O";
+      setTurn("X");
+    }
+
+    checkForWinner(squares);
+    setCells(squares);
+  };
+
+  const resetGame = () => {
+    setTurn("X");
+    setCells(Array(9).fill(""));
+    setWinner(null);
+  };
+
   return (
     <div className="ttt-container">
       <h1 className="ticTacToe-h1">Tic Tac Toe!</h1>
-      <table className="ticTacToe-table">
-        <tr>
-          <td className="ticTacToe-tableCell" id="0"></td>
-          <td className="ticTacToe-tableCell" id="1"></td>
-          <td className="ticTacToe-tableCell" id="2"></td>
-        </tr>
-        <tr>
-          <td className="ticTacToe-tableCell" id="3"></td>
-          <td className="ticTacToe-tableCell" id="4"></td>
-          <td className="ticTacToe-tableCell" id="5"></td>
-        </tr>
-        <tr>
-          <td className="ticTacToe-tableCell" id="6"></td>
-          <td className="ticTacToe-tableCell" id="7"></td>
-          <td className="ticTacToe-tableCell" id="8"></td>
-        </tr>
-        <div className="ticTacToe-endGame"></div>
-        <button>Reset</button>
-      </table>
+      {winner ? (
+        <>
+          <h2 className="ticTacToe-winner_h2">{winner} wins!</h2>
+          <button className="ticTacToe-resetBtn" onClick={resetGame}>
+            Play again
+          </button>
+        </>
+      ) : (
+        <>
+          <h2>Turn: {turn}</h2>
+          <table className="ticTacToe-table">
+            <tbody>
+              <tr>
+                <Cell cellId={0} />
+                <Cell cellId={1} />
+                <Cell cellId={2} />
+              </tr>
+              <tr>
+                <Cell cellId={3} />
+                <Cell cellId={4} />
+                <Cell cellId={5} />
+              </tr>
+              <tr>
+                <Cell cellId={6} />
+                <Cell cellId={7} />
+                <Cell cellId={8} />
+              </tr>
+            </tbody>
+          </table>
+        </>
+      )}
     </div>
   );
 };

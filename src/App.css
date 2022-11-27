@@ -503,6 +503,34 @@ td {
   cursor: pointer;
 }
 
+.ticTacToe-winner_h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.ticTacToe-resetBtn {
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: 2px 2px 3px rgb(0, 0, 0);
+  justify-self: center;
+  margin-top: 10px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  background-color: red;
+}
+
+.ticTacToe-resetBtn:hover {
+  color: red;
+  background-color: white;
+  cursor: pointer;
+}
+
+.ticTacToe-resetBtn:active {
+  box-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
 @media only screen and (min-width: 600px) {
   .calculator__border {
     width: 200px;
