@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 
 const Dice = () => {
-  const [dice, setDice] = useState(2);
+  const [numOfDice, setNumOfDice] = useState(2);
   const [activeDice, setActiveDice] = useState([]);
   const [diceFaces, setDiceFaces] = useState({
     1: (
@@ -66,20 +66,41 @@ const Dice = () => {
       </svg>
     ),
   });
+  const [total, setTotal] = useState();
 
-  useEffect(() => {}, [dice]);
+  useEffect(() => {
+    setTotal(null);
+    setActiveDice([]);
+    for (let i = 1; i <= numOfDice; i++) {
+      setActiveDice(prev => [prev, diceFaces[i]]);
+    }
+  }, [numOfDice, diceFaces]);
 
   const handleChangeOfNum = event => {
-    setDice(Number(event.target.value));
+    event.preventDefault();
+    setNumOfDice(Number(event.target.value));
+    setTotal(null);
+    setActiveDice([]);
+  };
+
+  const rollDice = event => {
+    event.preventDefault();
+    setTotal(null);
+    setActiveDice([]);
+    for (let i = 1; i <= numOfDice; i++) {
+      const random = Math.ceil(Math.random() * 6);
+      setActiveDice(prev => [prev, diceFaces[random]]);
+      setTotal(prev => (prev += random));
+    }
   };
 
   return (
     <div className="diceApp_container">
-      <div className="dice_container">
-        {diceFaces[1]}
-        {diceFaces[2]}
-      </div>
-      <button className="roll-btn">Roll</button>
+      <div className="dice_container">{activeDice.map(dice => dice)}</div>
+      <h2 className="dice_h2">Total rolled: {total}</h2>
+      <button className="roll-btn" onClick={rollDice}>
+        ROLL
+      </button>
       <div className="diceOptions">
         <FormControl>
           <FormLabel id="demo-radio-buttons-group-label">
