@@ -14,23 +14,21 @@ import Dice from "./components/Dice";
 
 function App() {
   return (
-    <div className="page_div">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/Home" element={<Home />} />
-          <Route path="/Counter" element={<Counter />} />
-          <Route path="/Calculator" element={<Calculator />} />
-          <Route path="/ToDoList" element={<ToDoList />} />
-          <Route path="/JokeGenerator" element={<JokeGenerator />} />
-          <Route path="/RockPaperScissors" element={<RockPaperScissors />} />
-          <Route path="/HexColours" element={<HexColours />} />
-          <Route path="/WeatherApp" element={<Weather />} />
-          <Route path="/TicTacToe" element={<TicTacToe />} />
-          <Route path="/Dice" element={<Dice />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/Home" element={<Home />} />
+        <Route path="/Counter" element={<Counter />} />
+        <Route path="/Calculator" element={<Calculator />} />
+        <Route path="/ToDoList" element={<ToDoList />} />
+        <Route path="/JokeGenerator" element={<JokeGenerator />} />
+        <Route path="/RockPaperScissors" element={<RockPaperScissors />} />
+        <Route path="/HexColours" element={<HexColours />} />
+        <Route path="/WeatherApp" element={<Weather />} />
+        <Route path="/TicTacToe" element={<TicTacToe />} />
+        <Route path="/Dice" element={<Dice />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
