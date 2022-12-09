@@ -720,18 +720,9 @@ td {
     font-size: 10px;
     margin-right: 30%;
   }
-  .diceForm {
-    display: grid;
-    grid-template-columns: 2;
-    grid-template-rows: 5;
-    grid-gap: 6px;
-    font-size: 20px;
-  }
-  .diceForm label {
-    grid-column: 2;
-  }
   .diceSize {
     height: 70px;
     width: 70px;
+    margin: 2px;
   }
 }
