@@ -11,6 +11,7 @@ import HexColours from "./components/HexColours";
 import Weather from "./components/Weather";
 import TicTacToe from "./components/TicTacToe";
 import Dice from "./components/Dice";
+import WouldYouRather from "./components/WouldYouRather";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/WeatherApp" element={<Weather />} />
         <Route path="/TicTacToe" element={<TicTacToe />} />
         <Route path="/Dice" element={<Dice />} />
+        <Route path="/WouldYouRather" element={<WouldYouRather />} />
       </Routes>
     </BrowserRouter>
   );

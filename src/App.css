@@ -605,6 +605,40 @@ td {
   height: 80px;
   width: 80px;
 }
+.WYR_btn {
+  height: 50px;
+  width: 150px;
+  background-color: white;
+  color: rgb(92, 187, 250);
+  border: 2px solid rgb(92, 187, 250);
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 25px;
+  margin-top: 5%;
+  margin-left: 45%;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.WYR_btn:hover {
+  color: white;
+  background-color: rgb(92, 187, 250);
+}
+.WYR_btn:active {
+  opacity: 0.5;
+}
+.WYR_h2 {
+  text-align: center;
+  margin-left: 25%;
+  margin-top: 5%;
+  font-size: 35px;
+  font-family: sans-serif;
+  height: 25%;
+  width: 50%;
+  color: white;
+  background-color: rgb(92, 187, 250);
+  padding: 15px;
+  border-radius: 10px;
+}
 @media only screen and (min-width: 600px) {
   .calculator__border {
     width: 200px;
@@ -725,5 +759,16 @@ td {
     height: 70px;
     width: 70px;
     margin: 2px;
+  }
+  .WYR_btn {
+    margin-top: 5%;
+    margin-left: 30%;
+  }
+  .WYR_h2 {
+    margin-left: 22%;
+    margin-top: 5%;
+    font-size: 15px;
+    height: 25%;
+    width: 50%;
   }
 }

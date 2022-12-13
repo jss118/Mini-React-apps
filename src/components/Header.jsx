@@ -36,6 +36,9 @@ const Header = () => {
         <Link className="link__pages" to="Dice">
           Dice Roll
         </Link>
+        <Link className="link__pages" to="WouldYouRather">
+          W.Y.R?
+        </Link>
       </div>
     </div>
   );
