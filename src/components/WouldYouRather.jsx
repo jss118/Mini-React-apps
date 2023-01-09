@@ -7,7 +7,7 @@ const WouldYouRather = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "8566a10eebmshfc29a9f6693dd35p188a02jsnc4b24c5f8746",
+        "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
         "X-RapidAPI-Host": "would-you-rather.p.rapidapi.com",
       },
     };
