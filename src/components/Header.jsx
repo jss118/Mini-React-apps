@@ -39,6 +39,9 @@ const Header = () => {
         <Link className="link__pages" to="WouldYouRather">
           W.Y.R?
         </Link>
+        <Link className="link__pages" to="RecipeGenerator">
+          Recipes
+        </Link>
       </div>
     </div>
   );
