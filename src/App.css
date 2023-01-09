@@ -1,3 +1,4 @@
+/*MAIN PAGE*/
 * {
   padding: 0;
   margin: 0;
@@ -39,7 +40,7 @@ body {
 .link__pages:active {
   opacity: 0.7;
 }
-
+/*HOME*/
 .home_content {
   border: 2px solid;
   margin: 10% 30% 10% 30%;
@@ -62,7 +63,7 @@ body {
   text-align: center;
   margin-top: 10px;
 }
-
+/*COUNTER*/
 .counter__border {
   border: 2px solid black;
   margin: auto;
@@ -137,7 +138,7 @@ body {
   box-shadow: 3px 4px 5px rgb(0, 0, 0, 0.4);
   transform: scale(0.95);
 }
-
+/*CALCULATOR*/
 .calculator__border {
   margin: auto;
   display: grid;
@@ -161,7 +162,7 @@ body {
 .calculator__btn {
   padding: 5px 5px 5px 5px;
 }
-
+/*TO-DO LIST*/
 .to-do__section {
   display: grid;
   grid-template-rows: 1fr 2fr;
@@ -239,7 +240,7 @@ body {
   color: rgb(255, 0, 0);
   justify-self: center;
 }
-
+/*JOKE GENERATOR*/
 .joke-gen__section {
   border: 2px solid;
   margin: 10% 30% 10% 30%;
@@ -280,6 +281,7 @@ body {
   box-shadow: 1px 2px 3px rgb(0, 0, 0, 0);
   opacity: 0.8;
 }
+/*ROCK PAPER SCISSORS*/
 .RPS__section {
   text-align: center;
 }
@@ -337,7 +339,7 @@ body {
   font-weight: bold;
   font-size: 50px;
 }
-
+/*HEX COLOURS*/
 .hex-btn {
   margin: 20px 50%;
   padding: 8px;
@@ -364,7 +366,7 @@ body {
   padding: 5px 5px;
   margin: auto;
 }
-
+/*WEATHER APP*/
 .weather-border {
   height: 25vh;
   width: 80%;
@@ -477,7 +479,7 @@ body {
   align-self: center;
   padding-top: 20px;
 }
-
+/*TIC TAC TOE*/
 .ttt-container {
   display: grid;
   justify-content: center;
@@ -528,7 +530,7 @@ td {
 .ticTacToe-resetBtn:active {
   box-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
-
+/*DICE ROLL*/
 .diceApp_container {
   height: 500px;
   width: 50%;
@@ -605,6 +607,7 @@ td {
   height: 80px;
   width: 80px;
 }
+/*WOULD YOU RATHER*/
 .WYR_btn {
   height: 50px;
   width: 150px;
@@ -638,6 +641,27 @@ td {
   background-color: rgb(92, 187, 250);
   padding: 15px;
   border-radius: 10px;
+}
+/*RECIPE GENERATOR*/
+.recipe_div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  justify-content: center;
+  width: 99%;
+  height: 1000px;
+  margin-left: 3px;
+}
+.recipe_gen-btn {
+  height: fit-content;
+  padding: 25px 25px 25px 25px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  grid-column: 2/4;
+  background-color: rgb(107, 250, 255);
 }
 @media only screen and (min-width: 600px) {
   .calculator__border {
