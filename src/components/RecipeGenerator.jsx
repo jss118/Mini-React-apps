@@ -1,7 +1,7 @@
 import React from "react";
 
 const RecipeGenerator = () => {
-  return <div>Recipe generator goes here</div>;
+  return <div>coming soon...</div>;
 };
 
 export default RecipeGenerator;

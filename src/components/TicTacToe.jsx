@@ -1,4 +1,5 @@
 import { useState } from "react";
+const findBestMove = require("../Utils/TicTacToeAI");
 
 const TicTacToe = () => {
   const [turn, setTurn] = useState("X");
@@ -60,7 +61,7 @@ const TicTacToe = () => {
       squares[cellId] = "X";
       setTurn("O");
     } else {
-      squares[cellId] = "O";
+      squares[findBestMove(squares)] = "O";
       setTurn("X");
     }
 
