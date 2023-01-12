@@ -14,9 +14,81 @@ describe("findBestMove", () => {
     expect(actual).toBeLessThanOrEqual(8);
   });
 
-  test("the function returns an index that creates a winning combination", () => {
+  test("the function returns index 2 that creates a horizontal winning combination", () => {
     const squares = ["O", "O", "", "", "X", "X", "", "X", ""];
     const actual = findBestMove(squares);
     expect(actual).toBe(2);
+  });
+
+  test("the function returns index 4 for a horizontal winning combination", () => {
+    const squares = ["O", "X", "X", "O", "", "O", "X", "X", ""];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(4);
+  });
+
+  test("the function returns index 6 for a horizontal winning combination", () => {
+    const squares = ["O", "X", "X", "X", "X", "", "", "O", "O"];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(6);
+  });
+
+  test("the function returns index 3 for a vertical winning combination", () => {
+    const squares = ["O", "X", "X", "", "X", "", "O", "X", "O"];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(3);
+  });
+
+  test("the function returns index 0 for a vertical winning combination", () => {
+    const squares = ["", "X", "X", "O", "X", "", "O", "X", "O"];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(0);
+  });
+
+  test("the function returns index 6 for a vertical winning combination", () => {
+    const squares = ["O", "X", "X", "O", "X", "", "", "X", ""];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(6);
+  });
+
+  test("the function returns index 5 for a vertical winning combination", () => {
+    const squares = ["X", "X", "O", "", "X", "", "", "", "O"];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(5);
+  });
+
+  test("the function returns index 0 for a diagonal winning combination", () => {
+    const squares = ["", "X", "X", "X", "O", "", "", "", "O"];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(0);
+  });
+
+  test("the function returns index 4 for a diagonal winning combination", () => {
+    const squares = ["O", "X", "X", "X", "", "", "", "", "O"];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(4);
+  });
+
+  test("the function returns index 8 for a diagonal winning combination", () => {
+    const squares = ["O", "X", "X", "X", "O", "", "", "", ""];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(8);
+  });
+
+  test("the function returns index 2 for a diagonal winning combination", () => {
+    const squares = ["", "X", "", "X", "O", "", "O", "", ""];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(2);
+  });
+
+  test("the function returns the middle square (index 4) for a diagonal winning combination", () => {
+    const squares = ["", "X", "O", "X", "", "", "O", "", ""];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(4);
+  });
+
+  test("the function returns index 6 for a diagonal winning combination", () => {
+    const squares = ["", "X", "O", "X", "O", "", "", "", ""];
+    const actual = findBestMove(squares);
+    expect(actual).toBe(6);
   });
 });
