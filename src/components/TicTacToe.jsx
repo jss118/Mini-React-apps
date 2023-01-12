@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+const findBestMove = require("../Utils/TicTacToeAI");
 
 const TicTacToe = () => {
   const [turn, setTurn] = useState("X");
   const [cells, setCells] = useState(Array(9).fill(""));
   const [winner, setWinner] = useState(null);
+  let squares = [...cells];
+
+  useEffect(() => {
+    if (turn === "O") {
+      setTimeout(() => {
+        squares[findBestMove(squares)] = "O";
+        setTurn("X");
+      }, 1000);
+    }
+    checkForWinner(squares);
+    setCells(squares);
+  }, [turn]);
 
   const checkForWinner = squares => {
     const winCombos = {
@@ -55,15 +68,11 @@ const TicTacToe = () => {
       alert("Square taken");
       return;
     }
-    let squares = [...cells];
+
     if (turn === "X") {
       squares[cellId] = "X";
       setTurn("O");
-    } else {
-      squares[cellId] = "O";
-      setTurn("X");
     }
-
     checkForWinner(squares);
     setCells(squares);
   };
