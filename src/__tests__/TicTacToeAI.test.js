@@ -91,4 +91,45 @@ describe("findBestMove", () => {
     const actual = findBestMove(squares);
     expect(actual).toBe(6);
   });
+
+  test("the function returns the correct index to stop X from getting a winning combination", () => {
+    const squares = ["X", "", "X", "", "O", "", "", "", ""];
+    const actual = findBestMove(squares);
+
+    const squares1 = ["X", "O", "X", "X", "X", "", "", "", ""];
+    const actual1 = findBestMove(squares1);
+
+    const squares2 = ["X", "O", "", "", "", "O", "X", "X", ""];
+    const actual2 = findBestMove(squares2);
+
+    expect(actual).toBe(1);
+    expect(actual1).toBe(5);
+    expect(actual2).toBe(8);
+  });
+
+  test("the function returns the correct index to stop X from getting a vertical winning combination", () => {
+    const squares = ["", "O", "X", "", "", "X", "", "", ""];
+    const actual = findBestMove(squares);
+
+    const squares1 = ["X", "O", "", "X", "", "", "", "", ""];
+    const actual1 = findBestMove(squares1);
+
+    const squares2 = ["O", "X", "", "", "", "", "", "X", ""];
+    const actual2 = findBestMove(squares2);
+
+    expect(actual).toBe(8);
+    expect(actual1).toBe(6);
+    expect(actual2).toBe(4);
+  });
+
+  test("the function returns the correct index to stop X from getting a diagonal winning combination", () => {
+    const squares = ["X", "", "", "O", "X", "", "", "", ""];
+    const actual = findBestMove(squares);
+
+    const squares1 = ["", "", "X", "", "X", "", "", "", ""];
+    const actual1 = findBestMove(squares1);
+
+    expect(actual).toBe(8);
+    expect(actual1).toBe(6);
+  });
 });
