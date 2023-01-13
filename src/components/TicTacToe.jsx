@@ -12,7 +12,7 @@ const TicTacToe = () => {
       setTimeout(() => {
         squares[findBestMove(squares)] = "O";
         setTurn("X");
-      }, 1000);
+      }, 500);
     }
     checkForWinner(squares);
     setCells(squares);
@@ -57,7 +57,12 @@ const TicTacToe = () => {
 
   const Cell = ({ cellId }) => {
     return (
-      <td onClick={() => handleClick(cellId)} className="ticTacToe-tableCell">
+      <td
+        onClick={() => {
+          return turn === "X" ? handleClick(cellId) : null;
+        }}
+        className="ticTacToe-tableCell"
+      >
         {cells[cellId]}
       </td>
     );

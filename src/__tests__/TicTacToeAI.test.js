@@ -132,4 +132,19 @@ describe("findBestMove", () => {
     expect(actual).toBe(8);
     expect(actual1).toBe(6);
   });
+  test("if Xs first move is the middle square, do NOT return any of the following indexs: 1, 3, 5 or 7", () => {
+    const squares = ["", "", "", "", "X", "", "", "", ""];
+    const actual = findBestMove(squares);
+
+    expect(actual).not.toBe(1);
+    expect(actual).not.toBe(3);
+    expect(actual).not.toBe(5);
+    expect(actual).not.toBe(7);
+  });
+  test("if index 4 is available on Os first go, return it", () => {
+    const squares = ["", "", "X", "", "", "", "", "", ""];
+    const actual = findBestMove(squares);
+
+    expect(actual).toBe(4);
+  });
 });

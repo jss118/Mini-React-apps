@@ -107,7 +107,21 @@ function findBestMove(squares) {
     return 6;
   }
 
-  const random = Math.floor(Math.random() * availableSquares.length);
+  let xMovesCount = 0;
+
+  squares.forEach(square => square === "X" && xMovesCount++);
+
+  const fourOrEight = () => {
+    return xMovesCount === 1 ? 4 : availableSquares.length;
+  };
+  const random = Math.floor(Math.random() * fourOrEight());
+
+  if (xMovesCount === 1) {
+    if (squares.indexOf("X") === 4) {
+      let counterMoves = [0, 2, 6, 8];
+      return counterMoves[random];
+    } else return 4;
+  }
   return availableSquares[random];
 }
 
