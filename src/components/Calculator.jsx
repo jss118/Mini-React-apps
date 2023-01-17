@@ -1,4 +1,5 @@
 import { useState } from "react";
+const calculate = require("../Utils/Calculate");
 
 const Calculator = () => {
   const [sum, setSum] = useState("");
@@ -37,28 +38,9 @@ const Calculator = () => {
         return null;
       });
     }
-    if (event.target.value === "=") {
-      setSum(prevSum => {
-        const newSum = prevSum.slice(0, prevSum.length - 1);
-        let num1 = null;
-        let num2 = null;
-        let operater = "";
-        for (let i = 0; i < newSum.length; i++) {
-          if (isNaN(newSum[i])) {
-            num1 = Number(newSum.slice(0, i));
-            operater += newSum[i];
-            num2 = Number(newSum.slice(i + 1));
-          }
-        }
 
-        return operater === "+"
-          ? (num1 + num2).toString()
-          : operater === "-"
-          ? (num1 - num2).toString()
-          : operater === "x"
-          ? (num1 * num2).toString()
-          : (num1 / num2).toString();
-      });
+    if (event.target.value === "=") {
+      setSum(prevSum => calculate(prevSum));
     }
   };
 
@@ -80,5 +62,4 @@ const Calculator = () => {
     </div>
   );
 };
-
 export default Calculator;
