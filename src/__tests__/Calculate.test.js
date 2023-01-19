@@ -5,7 +5,7 @@ describe("Calculate", () => {
     const input = "1+1";
     expect(typeof calculate(input)).toBe("string");
   });
-  test("the function takes in a sum as a string and returns the asnwer as a string", () => {
+  test("the function takes in a sum as a string and returns the answer as a string", () => {
     const input = "1+1";
     const input1 = "6-5";
     const input2 = "6/2";
@@ -21,7 +21,7 @@ describe("Calculate", () => {
     expect(actual2).toBe("3");
     expect(actual3).toBe("8");
   });
-  test("the function returns the correct answer for sums with mulitple operaters", () => {
+  test("the function returns the correct answer for sums with multiple operaters", () => {
     const input = "1+1+1";
     const input1 = "8-4-2";
     const input2 = "8/2/2";
@@ -52,5 +52,31 @@ describe("Calculate", () => {
     expect(actual1).toBe("6");
     expect(actual2).toBe("5");
     expect(actual3).toBe("8");
+  });
+  test("the function returns the correct answer when bigger numbers summed", () => {
+    const input = "2*10-5";
+    const input1 = "10+20/2";
+    const input2 = "100+100*3";
+    const input3 = "100-100/2";
+
+    const actual = calculate(input);
+    const actual1 = calculate(input1);
+    const actual2 = calculate(input2);
+    const actual3 = calculate(input3);
+
+    expect(actual).toBe("15");
+    expect(actual1).toBe("20");
+    expect(actual2).toBe("400");
+    expect(actual3).toBe("50");
+  });
+  test("the function returns the correct answer when a complicated sum is passed through", () => {
+    const input = "100+500/2+50";
+    const input1 = "600-2*100";
+
+    const actual = calculate(input);
+    const actual1 = calculate(input1);
+
+    expect(actual).toBe("400");
+    expect(actual1).toBe("400");
   });
 });
