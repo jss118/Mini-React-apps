@@ -38,7 +38,7 @@ const Calculator = () => {
     }
 
     if (event.target.value === "=") {
-      setSum(prevSum => console.log(calculate(prevSum)));
+      setSum(prevSum => calculate(prevSum));
     }
   };
 
