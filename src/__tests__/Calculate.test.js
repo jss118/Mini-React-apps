@@ -9,7 +9,7 @@ describe("Calculate", () => {
     const input = "1+1";
     const input1 = "6-5";
     const input2 = "6/2";
-    const input3 = "4*2";
+    const input3 = "4x2";
 
     const actual = calculate(input);
     const actual1 = calculate(input1);
@@ -25,7 +25,7 @@ describe("Calculate", () => {
     const input = "1+1+1";
     const input1 = "8-4-2";
     const input2 = "8/2/2";
-    const input3 = "2*2*2";
+    const input3 = "2x2x2";
 
     const actual = calculate(input);
     const actual1 = calculate(input1);
@@ -39,8 +39,8 @@ describe("Calculate", () => {
   });
   test("the function returns the correct answer when a mix of operaters are in the same sum", () => {
     const input = "2+4-3";
-    const input1 = "2*4-2";
-    const input2 = "1+1*4";
+    const input1 = "2x4-2";
+    const input2 = "1+1x4";
     const input3 = "9-2/2";
 
     const actual = calculate(input);
@@ -54,9 +54,9 @@ describe("Calculate", () => {
     expect(actual3).toBe("8");
   });
   test("the function returns the correct answer when bigger numbers summed", () => {
-    const input = "2*10-5";
+    const input = "2x10-5";
     const input1 = "10+20/2";
-    const input2 = "100+100*3";
+    const input2 = "100+100x3";
     const input3 = "100-100/2";
 
     const actual = calculate(input);
@@ -71,7 +71,7 @@ describe("Calculate", () => {
   });
   test("the function returns the correct answer when a complicated sum is passed through", () => {
     const input = "100+500/2+50";
-    const input1 = "600-2*100+50";
+    const input1 = "600-2x100+50";
 
     const actual = calculate(input);
     const actual1 = calculate(input1);

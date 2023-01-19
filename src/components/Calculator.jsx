@@ -34,9 +34,7 @@ const Calculator = () => {
     });
 
     if (event.target.value === "C") {
-      setSum(() => {
-        return null;
-      });
+      setSum(() => null);
     }
 
     if (event.target.value === "=") {
