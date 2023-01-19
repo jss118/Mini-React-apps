@@ -34,13 +34,11 @@ const Calculator = () => {
     });
 
     if (event.target.value === "C") {
-      setSum(() => {
-        return null;
-      });
+      setSum(() => null);
     }
 
     if (event.target.value === "=") {
-      setSum(prevSum => calculate(prevSum));
+      setSum(prevSum => console.log(calculate(prevSum)));
     }
   };
 
