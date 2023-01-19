@@ -71,12 +71,12 @@ describe("Calculate", () => {
   });
   test("the function returns the correct answer when a complicated sum is passed through", () => {
     const input = "100+500/2+50";
-    const input1 = "600-2*100";
+    const input1 = "600-2*100+50";
 
     const actual = calculate(input);
     const actual1 = calculate(input1);
 
     expect(actual).toBe("400");
-    expect(actual1).toBe("400");
+    expect(actual1).toBe("450");
   });
 });

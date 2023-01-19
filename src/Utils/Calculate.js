@@ -32,7 +32,7 @@ const calculate = sumStr => {
 
   let answer = Number(sumArr[0]);
   sumArr = sumArr.slice(1);
-
+  console.log(answer, sumArr);
   for (let i = 0; i < sumArr.length; i++) {
     if (sumArr[i] === "+") {
       answer += Number(sumArr[i + 1]);
@@ -44,7 +44,8 @@ const calculate = sumStr => {
       answer *= Number(sumArr[i + 1]);
     }
   }
-  return answer.toString();
+
+  return String(answer);
 };
 
 module.exports = calculate;
