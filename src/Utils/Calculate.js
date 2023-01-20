@@ -10,7 +10,7 @@ const calculate = sumStr => {
       sumArr.push(operaters[i]);
     }
   }
-  console.log(sumArr);
+
   for (let i = 0; i < operaters.length; i++) {
     for (let i = 0; i < sumArr.length; i++) {
       if (sumArr.includes("+") || sumArr.includes("-")) {
@@ -31,7 +31,6 @@ const calculate = sumStr => {
       }
     }
   }
-  console.log(sumArr);
 
   let answer = Number(sumArr[0]);
   sumArr = sumArr.slice(1);

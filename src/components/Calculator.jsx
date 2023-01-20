@@ -3,6 +3,7 @@ const calculate = require("../Utils/Calculate");
 
 const Calculator = () => {
   const [sum, setSum] = useState("");
+  const [btnColor, setBtnColor] = useState("#FFFFFF");
 
   const buttons = [
     { value: 8 },
@@ -34,12 +35,27 @@ const Calculator = () => {
     });
 
     if (event.target.value === "C") {
-      setSum(() => null);
+      setSum(() => "");
     }
 
     if (event.target.value === "=") {
-      setSum(prevSum => calculate(prevSum));
+      if (sum.length === 0) {
+        alert(
+          'Click on a number, followed by an operater, then another number. Then you can click "=" to recieve the result. For example: "3+5" then "=".'
+        );
+        setSum("");
+      } else {
+        setSum(prevSum => calculate(prevSum));
+      }
     }
+  };
+  const randomColor = () => {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   };
 
   return (

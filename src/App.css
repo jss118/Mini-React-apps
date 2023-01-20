@@ -151,6 +151,7 @@ body {
 }
 
 .calculator__screen {
+  height: 28px;
   grid-column-start: span 3;
   border: 1px solid black;
   text-align: end;
@@ -160,6 +161,21 @@ body {
 
 .calculator__btn {
   padding: 5px 5px 5px 5px;
+  border-radius: 25px;
+  border: 2px solid black;
+  box-shadow: 3px -3px 1px black;
+}
+
+.calculator__btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.calculator__btn:active {
+  box-shadow: 0 0 0;
+  position: relative;
+  left: 3px;
+  bottom: 3px;
 }
 
 .to-do__section {
