@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const HexColours = () => {
-  const [code, setCode] = useState("#");
+  const [code, setCode] = useState("#FFFFFF");
 
   useEffect(() => {
     document.querySelector("body").style.backgroundColor = code;
