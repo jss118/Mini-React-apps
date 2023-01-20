@@ -72,11 +72,24 @@ describe("Calculate", () => {
   test("the function returns the correct answer when a complicated sum is passed through", () => {
     const input = "100+500/2+50";
     const input1 = "600-2x100+50";
+    const input2 = "2x50+2x50";
+
+    const actual = calculate(input);
+    const actual1 = calculate(input1);
+    const actual2 = calculate(input2);
+
+    expect(actual).toBe("400");
+    expect(actual1).toBe("450");
+    expect(actual2).toBe("200");
+  });
+  test("the function returns the correct answer when multiplication and division are included in the sum", () => {
+    const input = "10+2/4x20";
+    const input1 = "10+20x2/4";
 
     const actual = calculate(input);
     const actual1 = calculate(input1);
 
-    expect(actual).toBe("400");
-    expect(actual1).toBe("450");
+    expect(actual).toBe("20");
+    expect(actual1).toBe("20");
   });
 });

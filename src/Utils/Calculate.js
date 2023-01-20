@@ -10,25 +10,28 @@ const calculate = sumStr => {
       sumArr.push(operaters[i]);
     }
   }
-
-  for (let i = 0; i < sumArr.length; i++) {
-    if (sumArr[1] === "+" || sumArr[1] === "-") {
-      if (sumArr[i] === "x") {
-        sumArr.splice(
-          i - 1,
-          3,
-          String(Number(sumArr[i - 1]) * Number(sumArr[i + 1]))
-        );
-      }
-      if (sumArr[i] === "/") {
-        sumArr.splice(
-          i - 1,
-          3,
-          String(Number(sumArr[i - 1]) / Number(sumArr[i + 1]))
-        );
+  console.log(sumArr);
+  for (let i = 0; i < operaters.length; i++) {
+    for (let i = 0; i < sumArr.length; i++) {
+      if (sumArr.includes("+") || sumArr.includes("-")) {
+        if (sumArr[i] === "x") {
+          sumArr.splice(
+            i - 1,
+            3,
+            String(Number(sumArr[i - 1]) * Number(sumArr[i + 1]))
+          );
+        }
+        if (sumArr[i] === "/") {
+          sumArr.splice(
+            i - 1,
+            3,
+            String(Number(sumArr[i - 1]) / Number(sumArr[i + 1]))
+          );
+        }
       }
     }
   }
+  console.log(sumArr);
 
   let answer = Number(sumArr[0]);
   sumArr = sumArr.slice(1);
