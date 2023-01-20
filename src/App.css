@@ -354,8 +354,14 @@ body {
   font-size: 50px;
 }
 
+.hexBtnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 5% 25% 5% 25%;
+}
+
 .hex-btn {
-  margin: 20px 50%;
   padding: 8px;
   height: 60px;
   width: 60px;
@@ -378,6 +384,12 @@ body {
   text-align: center;
   width: fit-content;
   padding: 5px 5px;
+  margin: auto;
+}
+
+.codeContainer {
+  height: 300px;
+  width: 800px;
   margin: auto;
 }
 
