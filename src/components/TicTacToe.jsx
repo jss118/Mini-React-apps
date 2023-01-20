@@ -2,17 +2,19 @@ import { useState, useEffect } from "react";
 const findBestMove = require("../Utils/TicTacToeAI");
 
 const TicTacToe = () => {
-  const [turn, setTurn] = useState("X");
+  const [turn, setTurn] = useState("Player");
   const [cells, setCells] = useState(Array(9).fill(""));
   const [winner, setWinner] = useState(null);
   let squares = [...cells];
 
   useEffect(() => {
-    if (turn === "O") {
-      setTimeout(() => {
-        squares[findBestMove(squares)] = "O";
-        setTurn("X");
-      }, 500);
+    if (!winner) {
+      if (turn === "Computer") {
+        setTimeout(() => {
+          squares[findBestMove(squares)] = "O";
+          setTurn("Player");
+        }, 600);
+      }
     }
     checkForWinner(squares);
     setCells(squares);
@@ -48,7 +50,13 @@ const TicTacToe = () => {
           squares[pattern[0]] === squares[pattern[1]] &&
           squares[pattern[1]] === squares[pattern[2]]
         ) {
-          setWinner(squares[pattern[0]]);
+          setWinner(() => {
+            if (squares[pattern[0]] === "X") {
+              return "You Win!";
+            } else {
+              return "Computer Wins!";
+            }
+          });
         }
       });
       if (squares.every(square => square)) setWinner("Tie!");
@@ -59,7 +67,7 @@ const TicTacToe = () => {
     return (
       <td
         onClick={() => {
-          return turn === "X" ? handleClick(cellId) : null;
+          return turn === "Player" ? handleClick(cellId) : null;
         }}
         className="ticTacToe-tableCell"
       >
@@ -74,16 +82,18 @@ const TicTacToe = () => {
       return;
     }
 
-    if (turn === "X") {
-      squares[cellId] = "X";
-      setTurn("O");
+    if (turn === "Player") {
+      if (!winner) {
+        squares[cellId] = "X";
+        setTurn("Computer");
+        checkForWinner(squares);
+        setCells(squares);
+      }
     }
-    checkForWinner(squares);
-    setCells(squares);
   };
 
   const resetGame = () => {
-    setTurn("X");
+    setTurn("Player");
     setCells(Array(9).fill(""));
     setWinner(null);
   };
@@ -92,38 +102,34 @@ const TicTacToe = () => {
     <div className="ttt-container">
       <h1 className="ticTacToe-h1">Tic Tac Toe!</h1>
       {winner ? (
-        <>
-          <h2 className="ticTacToe-winner_h2">
-            {winner === "Tie!" ? `${winner}` : `${winner} wins!`}
-          </h2>
+        <div className="winnerPopup--div">
+          <h2 className="ticTacToe-winner_h2">{winner}</h2>
           <button className="ticTacToe-resetBtn" onClick={resetGame}>
             Play again
           </button>
-        </>
-      ) : (
-        <>
-          <h2>Turn: {turn}</h2>
-          <table className="ticTacToe-table">
-            <tbody>
-              <tr>
-                <Cell cellId={0} />
-                <Cell cellId={1} />
-                <Cell cellId={2} />
-              </tr>
-              <tr>
-                <Cell cellId={3} />
-                <Cell cellId={4} />
-                <Cell cellId={5} />
-              </tr>
-              <tr>
-                <Cell cellId={6} />
-                <Cell cellId={7} />
-                <Cell cellId={8} />
-              </tr>
-            </tbody>
-          </table>
-        </>
-      )}
+        </div>
+      ) : null}
+
+      <h2>Turn: {turn}</h2>
+      <table className="ticTacToe-table">
+        <tbody>
+          <tr>
+            <Cell cellId={0} />
+            <Cell cellId={1} />
+            <Cell cellId={2} />
+          </tr>
+          <tr>
+            <Cell cellId={3} />
+            <Cell cellId={4} />
+            <Cell cellId={5} />
+          </tr>
+          <tr>
+            <Cell cellId={6} />
+            <Cell cellId={7} />
+            <Cell cellId={8} />
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

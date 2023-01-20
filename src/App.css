@@ -529,18 +529,32 @@ td {
   cursor: pointer;
 }
 
+.winnerPopup--div {
+  height: 130px;
+  width: 265px;
+  position: absolute;
+  top: 65%;
+  left: 43%;
+  opacity: 0.8;
+  background-color: black;
+  border-radius: 10px;
+}
+
 .ticTacToe-winner_h2 {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  color: white;
 }
 
 .ticTacToe-resetBtn {
-  height: 50px;
-  width: 100px;
+  position: absolute;
+  top: 35%;
+  left: 33%;
+  height: 40px;
+  width: 93px;
   border-radius: 10px;
   border-style: none;
   box-shadow: 2px 2px 3px rgb(0, 0, 0);
-  justify-self: center;
   margin-top: 10px;
   font-weight: bold;
   color: rgb(255, 255, 255);
@@ -763,6 +777,16 @@ td {
     margin-right: 0;
     height: 80px;
     width: 80px;
+  }
+  .winnerPopup--div {
+    height: 130px;
+    width: 265px;
+    position: absolute;
+    top: 70%;
+    left: 13%;
+    opacity: 0.8;
+    background-color: black;
+    border-radius: 10px;
   }
   .diceApp_container {
     height: 500px;
