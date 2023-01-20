@@ -14,16 +14,26 @@ const HexColours = () => {
       for (let i = 0; i < 6; i++) {
         prevCode += hex[Math.floor(Math.random() * 16)];
       }
-
       return prevCode;
     });
   };
+
+  const reset = () => {
+    setCode(null);
+  };
+
   return (
     <>
-      <button className="hex-btn" onClick={getHexCode}>
-        Hex code
-      </button>
-      {code === "#" ? null : (
+      <div className="hexBtnContainer">
+        <button className="hex-btn" onClick={getHexCode}>
+          Hex code
+        </button>
+        <button className="hex-btn" onClick={reset}>
+          Reset
+        </button>
+      </div>
+
+      {code === null ? null : (
         <h2 className="hex-h2">
           This background colour is the Hex code {code}
         </h2>
