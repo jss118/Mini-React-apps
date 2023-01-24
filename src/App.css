@@ -286,7 +286,7 @@ p {
 }
 .singleItem--div {
   height: 300px;
-  width: 700px;
+  width: 900px;
   background-color: rgb(39, 155, 209, 0.9);
   border: 2px solid black;
   border-radius: 10px;
@@ -294,15 +294,14 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  margin-left: 130px;
-  bottom: 80px;
-  z-index: 1;
+  margin-left: 30px;
+  margin-top: -290px;
+  z-index: 2;
 }
 .singleItemBG {
   background-color: white;
-  height: 150px;
-  width: 450px;
+  height: 200px;
+  width: 800px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -314,7 +313,7 @@ p {
   background-color: transparent;
   border-style: none;
   color: red;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 .closeBtn:hover {
   cursor: pointer;
@@ -820,6 +819,18 @@ td {
   p {
     margin-top: 8px;
   }
+  .singleItem--div {
+    height: 150px;
+    width: 300px;
+    margin-left: 10px;
+    margin-top: -150px;
+    z-index: 2;
+  }
+  .singleItemBG {
+    height: 120px;
+    width: 270px;
+  }
+
   .joke-gen__section {
     width: 80%;
     margin-left: 5%;
