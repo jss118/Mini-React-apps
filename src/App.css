@@ -212,6 +212,9 @@ body {
   background-color: rgb(33, 236, 33);
   border-style: none;
 }
+.to-do__addBtn:hover {
+  cursor: pointer;
+}
 .to-do__ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -220,18 +223,37 @@ body {
   grid-auto-flow: row;
 }
 .to-do__li {
-  display: flex;
   flex-direction: row;
   list-style: none;
-  border: 2px solid white;
   border-radius: 5px;
   background-color: rgb(39, 155, 209);
+  display: block;
   height: 30px;
-  width: 100px;
+  width: 150px;
   text-align: center;
   align-items: center;
   justify-content: space-between;
-  padding-left: 2%;
+  padding: 5% 10% 0 4%;
+  white-space: nowrap;
+}
+.to-do__li:hover {
+  cursor: pointer;
+}
+.to-do__li,
+p {
+  z-index: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.deleteBtn--div {
+  background-color: rgb(39, 155, 209);
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  z-index: 2;
+  margin: -40px 0 60px 170px;
+  border-radius: 12px;
+  scale: 2;
 }
 .to-do__deleteBtn {
   color: white;
@@ -239,12 +261,16 @@ body {
   border-style: none;
   font-size: 15px;
   height: max-content;
-  border-radius: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
+  width: 20px;
+  border-radius: 12px;
+  padding: 0 5px 3px 5px;
+  margin: -2px 0 0 -10px;
   order: 1;
-  flex-basis: 10%;
-  align-self: flex-start;
+  position: absolute;
+  scale: 0.6;
+}
+.to-do__deleteBtn:hover {
+  cursor: pointer;
 }
 .clear-btn {
   background-color: transparent;
@@ -255,7 +281,44 @@ body {
   color: rgb(255, 0, 0);
   justify-self: center;
 }
-
+.clear-btn:hover {
+  cursor: pointer;
+}
+.singleItem--div {
+  height: 300px;
+  width: 700px;
+  background-color: rgb(39, 155, 209, 0.9);
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: 130px;
+  bottom: 80px;
+  z-index: 1;
+}
+.singleItemBG {
+  background-color: white;
+  height: 150px;
+  width: 450px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  word-wrap: normal;
+}
+.closeBtn {
+  background-color: transparent;
+  border-style: none;
+  color: red;
+  margin-top: 50px;
+}
+.closeBtn:hover {
+  cursor: pointer;
+}
 .joke-gen__section {
   border: 2px solid;
   margin: 10% 30% 10% 30%;
@@ -720,7 +783,8 @@ td {
   }
   .to-do__addBtn {
     height: 35px;
-
+    padding-left: 10px;
+    padding-right: 10px;
     margin-left: 5%;
   }
   .to-do__section {
@@ -730,9 +794,31 @@ td {
     margin-top: 3%;
   }
   .to-do__li {
-    height: 20px;
-    width: 50px;
+    height: 30px;
+    width: 85px;
     font-size: 10px;
+    z-index: 2;
+  }
+  .deleteBtn--div {
+    width: 15px;
+    height: 15px;
+    z-index: 1;
+    margin: -28px 0 0 80px;
+    border-radius: 12px;
+    scale: 1.5;
+    position: absolute;
+  }
+  .to-do__deleteBtn {
+    border-radius: 10px;
+    padding: 0 6px 3px 6px;
+    order: 1;
+    margin: -3px 0 0 -10px;
+    position: absolute;
+    scale: 0.5;
+  }
+  .to-do__li,
+  p {
+    margin-top: 8px;
   }
   .joke-gen__section {
     width: 80%;

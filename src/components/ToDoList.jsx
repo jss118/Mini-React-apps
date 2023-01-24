@@ -3,12 +3,14 @@ import { useState } from "react";
 const ToDoList = () => {
   const [listItems, setListItems] = useState([]);
   const [newItem, setNewItem] = useState("");
+  const [singleItem, setSingleItem] = useState("");
+  const [viewItem, setViewItem] = useState(false);
 
   const handleChange = event => {
     setNewItem(event.target.value);
   };
 
-  const handleClick = event => {
+  const addItem = event => {
     event.preventDefault();
     if (newItem)
       setListItems(items => {
@@ -19,6 +21,8 @@ const ToDoList = () => {
   };
 
   const removeItem = event => {
+    setSingleItem("");
+    setViewItem(false);
     const deleteItem = event.target.value;
     setListItems(currentList => {
       const newList = currentList.filter(item => item !== deleteItem);
@@ -28,6 +32,19 @@ const ToDoList = () => {
 
   const clear = () => {
     setListItems([]);
+    setSingleItem("");
+    setViewItem(false);
+  };
+
+  const viewSingleItem = event => {
+    setViewItem(true);
+    const item = event.target.textContent;
+    setSingleItem(item);
+  };
+
+  const closeSingleItem = () => {
+    setViewItem(false);
+    setSingleItem("");
   };
 
   return (
@@ -40,7 +57,7 @@ const ToDoList = () => {
           type="text"
           required
         />
-        <button className="to-do__addBtn" onClick={handleClick}>
+        <button className="to-do__addBtn" onClick={addItem}>
           +
         </button>
       </form>
@@ -48,19 +65,31 @@ const ToDoList = () => {
       <ul className="to-do__ul">
         {listItems.map((item, index) => {
           return (
-            <li key={index} className="to-do__li">
-              {item}
-              <button
-                className="to-do__deleteBtn"
-                value={item}
-                onClick={removeItem}
-              >
-                x
-              </button>
+            <li onClick={viewSingleItem} key={index} className="to-do__li">
+              <p>{item}</p>
+              <div className="deleteBtn--div">
+                <button
+                  className="to-do__deleteBtn"
+                  value={item}
+                  onClick={removeItem}
+                >
+                  x
+                </button>
+              </div>
             </li>
           );
         })}
       </ul>
+      {viewItem ? (
+        <div className="singleItem--div">
+          <div className="singleItemBG">
+            <p>{singleItem}</p>
+            <button className="closeBtn" onClick={closeSingleItem}>
+              close
+            </button>
+          </div>
+        </div>
+      ) : null}
       {listItems.length > 1 ? (
         <button className="clear-btn" onClick={clear}>
           CLEAR
