@@ -85,7 +85,7 @@ const ToDoList = () => {
           <div className="singleItemBG">
             <p>{singleItem}</p>
             <button className="closeBtn" onClick={closeSingleItem}>
-              close
+              Close
             </button>
           </div>
         </div>
