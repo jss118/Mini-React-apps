@@ -65,8 +65,8 @@ const ToDoList = () => {
       <ul className="to-do__ul">
         {listItems.map((item, index) => {
           return (
-            <li onClick={viewSingleItem} key={index} className="to-do__li">
-              <p>{item}</p>
+            <li key={index} className="to-do__li">
+              <p onClick={viewSingleItem}>{item}</p>
               <div className="deleteBtn--div">
                 <button
                   className="to-do__deleteBtn"
@@ -90,7 +90,7 @@ const ToDoList = () => {
           </div>
         </div>
       ) : null}
-      {listItems.length > 1 ? (
+      {listItems.length > 1 && !singleItem ? (
         <button className="clear-btn" onClick={clear}>
           CLEAR
         </button>
