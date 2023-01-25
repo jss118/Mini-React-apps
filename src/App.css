@@ -296,7 +296,7 @@ p {
   align-items: center;
   margin-left: 30px;
   margin-top: -290px;
-  z-index: 2;
+  z-index: 3;
 }
 .singleItemBG {
   background-color: white;
@@ -308,6 +308,10 @@ p {
   justify-content: center;
   align-items: center;
   word-wrap: normal;
+  white-space: pre-wrap;
+  padding: 0 0;
+}
+.singleItem--p {
 }
 .closeBtn {
   background-color: transparent;
@@ -824,13 +828,20 @@ td {
     width: 300px;
     margin-left: 10px;
     margin-top: -150px;
-    z-index: 2;
+    z-index: 3;
   }
   .singleItemBG {
     height: 120px;
     width: 270px;
   }
-
+  .singleItem--p {
+    margin-top: 160px;
+    margin-left: 10px;
+    margin-bottom: -50px;
+  }
+  .closeBtn {
+    margin-bottom: 160px;
+  }
   .joke-gen__section {
     width: 80%;
     margin-left: 5%;

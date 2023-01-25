@@ -83,9 +83,11 @@ const ToDoList = () => {
       {viewItem ? (
         <div className="singleItem--div">
           <div className="singleItemBG">
-            <p>{singleItem}</p>
+            <span>
+              <p className="singleItem--p">{singleItem}</p>
+            </span>
             <button className="closeBtn" onClick={closeSingleItem}>
-              Close
+              close
             </button>
           </div>
         </div>
