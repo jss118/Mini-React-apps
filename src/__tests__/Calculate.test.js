@@ -92,4 +92,9 @@ describe("Calculate", () => {
     expect(actual).toBe("20");
     expect(actual1).toBe("20");
   });
+  test.only("the function works with negative numbers", () => {
+    const input = "-1+1";
+    const actual = calculate(input);
+    expect(actual).toBe("0");
+  });
 });
