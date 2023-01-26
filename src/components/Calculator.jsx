@@ -3,7 +3,6 @@ const calculate = require("../Utils/Calculate");
 
 const Calculator = () => {
   const [sum, setSum] = useState("");
-  const [btnColor, setBtnColor] = useState("#FFFFFF");
 
   const buttons = [
     { value: 8 },
@@ -18,10 +17,10 @@ const Calculator = () => {
     { value: 2 },
     { value: 3 },
     { value: "+" },
-    { value: 1 },
-    { value: "=" },
-    { value: "-" },
     { value: 0 },
+    { value: 1 },
+    { value: "-" },
+    { value: "=" },
   ];
 
   const handleClick = event => {
@@ -49,14 +48,6 @@ const Calculator = () => {
       }
     }
   };
-  const randomColor = () => {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
 
   return (
     <div className="calculator__border">
@@ -67,7 +58,13 @@ const Calculator = () => {
             key={button.value}
             value={button.value}
             onClick={handleClick}
-            className="calculator__btn"
+            className={
+              typeof button.value === "number"
+                ? "calculator__btn numBtn"
+                : button.value === "="
+                ? "calculator__btn opBtn equalsBtn"
+                : "calculator__btn opBtn"
+            }
           >
             {button.value}
           </button>

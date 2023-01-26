@@ -92,4 +92,36 @@ describe("Calculate", () => {
     expect(actual).toBe("20");
     expect(actual1).toBe("20");
   });
+  test("the function works with negative numbers", () => {
+    const input = "-1+1";
+    const input1 = "-3x2";
+    const input2 = "-4/2";
+    const input3 = "-4-1";
+
+    const actual = calculate(input);
+    const actual1 = calculate(input1);
+    const actual2 = calculate(input2);
+    const actual3 = calculate(input3);
+
+    expect(actual).toBe("0");
+    expect(actual1).toBe("-6");
+    expect(actual2).toBe("-2");
+    expect(actual3).toBe("-5");
+  });
+  test("the function returns the correct answers when a multiple digit negative is present in the sum", () => {
+    const input = "-50+5";
+    const input1 = "-50-5";
+    const input2 = "-500x2";
+    const input3 = "-50/2";
+
+    const actual = calculate(input);
+    const actual1 = calculate(input1);
+    const actual2 = calculate(input2);
+    const actual3 = calculate(input3);
+
+    expect(actual).toBe("-45");
+    expect(actual1).toBe("-55");
+    expect(actual2).toBe("-1000");
+    expect(actual3).toBe("-25");
+  });
 });
