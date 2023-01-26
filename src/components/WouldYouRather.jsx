@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const WouldYouRather = () => {
-  const [choices, setChoices] = useState("");
+  const [choices, setChoices] = useState([]);
 
   const getChoices = () => {
     const options = {
@@ -14,7 +14,12 @@ const WouldYouRather = () => {
 
     fetch("https://would-you-rather.p.rapidapi.com/wyr/random", options)
       .then(response => response.json())
-      .then(response => setChoices(response[0].question))
+      .then(response =>
+        setChoices(() => {
+          const choices = response[0].question.slice(17).split(" or ");
+          return choices;
+        })
+      )
       .catch(err => console.error(err));
   };
 
@@ -24,9 +29,11 @@ const WouldYouRather = () => {
         Would you rather...
       </button>
       {choices ? (
-        <>
-          <h2 className="WYR_h2">{choices}</h2>
-        </>
+        <div className="choicesContainer">
+          <h2 className="choiceOne">{choices[0]}</h2>
+          <h1 className="choiceSeperater">OR</h1>
+          <h2 className="choiceTwo">{choices[1]}</h2>
+        </div>
       ) : null}
     </div>
   );

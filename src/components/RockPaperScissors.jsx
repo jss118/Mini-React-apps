@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const RockPaperScissors = () => {
   const [startGame, setStartGame] = useState(false);
@@ -7,7 +7,25 @@ const RockPaperScissors = () => {
   const [computerOption, setComputerOption] = useState("");
   const [whoWins, setWhoWins] = useState("");
 
-  useEffect(() => {
+  const start = () => {
+    setStartGame(true);
+  };
+
+  const chooseOption = event => {
+    setPlayerOption(event.target.value);
+    setComputerOption(prevChoice => {
+      const choices = {
+        1: "Rock",
+        2: "Paper",
+        3: "Scissors",
+      };
+      let choice = Math.floor(Math.random() * 3) + 1;
+      while (choices[choice] === prevChoice) {
+        choice = Math.floor(Math.random() * 3) + 1;
+      }
+      return choices[choice];
+    });
+
     if (
       (playerOption === "Rock" && computerOption === "Scissors") ||
       (playerOption === "Scissors" && computerOption === "Paper") ||
@@ -34,7 +52,7 @@ const RockPaperScissors = () => {
 
     if (scores.computer === 3 || scores.player === 3) {
       if (scores.computer > scores.player) {
-        setWhoWins("You lose! :(");
+        setWhoWins("Computer Wins!");
       } else {
         setWhoWins("You Win!");
       }
@@ -43,23 +61,6 @@ const RockPaperScissors = () => {
       setPlayerOption("");
       setStartGame(false);
     }
-  }, [computerOption, playerOption, scores]);
-
-  const start = () => {
-    setStartGame(true);
-  };
-
-  const chooseOption = event => {
-    setPlayerOption(event.target.innerText);
-    setComputerOption(() => {
-      const choices = {
-        1: "Rock",
-        2: "Paper",
-        3: "Scissors",
-      };
-      const choice = Math.floor(Math.random() * 3) + 1;
-      return choices[choice];
-    });
   };
 
   return (
@@ -82,13 +83,17 @@ const RockPaperScissors = () => {
             {computerOption ? <h2>{computerOption}</h2> : null}
           </div>
           <div className="options">
-            <button className="option-btn" onClick={chooseOption}>
+            <button className="option-btn" value="Rock" onClick={chooseOption}>
               Rock
             </button>
-            <button className="option-btn" onClick={chooseOption}>
+            <button className="option-btn" value="Paper" onClick={chooseOption}>
               Paper
             </button>
-            <button className="option-btn" onClick={chooseOption}>
+            <button
+              className="option-btn"
+              value="Scissors"
+              onClick={chooseOption}
+            >
               Scissors
             </button>
           </div>

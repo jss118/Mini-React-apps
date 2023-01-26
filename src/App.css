@@ -748,14 +748,34 @@ td {
 .WYR_btn:active {
   opacity: 0.5;
 }
-.WYR_h2 {
+.choicesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.choiceOne {
   text-align: center;
-  margin-left: 25%;
   margin-top: 5%;
   font-size: 35px;
   font-family: sans-serif;
   height: 25%;
-  width: 50%;
+  width: 20%;
+  color: white;
+  background-color: rgb(92, 187, 250);
+  padding: 15px;
+  border-radius: 10px;
+}
+.choiceSeperater {
+  margin-top: 6%;
+}
+.choiceTwo {
+  text-align: center;
+  margin-top: 5%;
+
+  font-size: 35px;
+  font-family: sans-serif;
+  height: 25%;
+  width: 20%;
   color: white;
   background-color: rgb(92, 187, 250);
   padding: 15px;
@@ -941,11 +961,18 @@ td {
     margin-top: 5%;
     margin-left: 30%;
   }
-  .WYR_h2 {
-    margin-left: 22%;
-    margin-top: 5%;
+  .choiceOne {
     font-size: 15px;
     height: 25%;
-    width: 50%;
+    width: 25%;
+  }
+  .choiceSeperater {
+    margin-top: 10%;
+    font-size: 18px;
+  }
+  .choiceTwo {
+    font-size: 15px;
+    height: 25%;
+    width: 25%;
   }
 }
